@@ -1,0 +1,34 @@
+{
+  "copyright": "Debian package copyright notices are installed under /usr/share/doc/<package>/copyright. The wheel includes its own license metadata. Retain these notices.",
+  "packages": {
+    "asciinema-2.4.0-py3-none-any.whl": {
+      "bytes": 97332,
+      "sha256": "249ccf108509d643ddaf38979dac48c99e9e251f597173d8553a30d7a6423104",
+      "url": "https://files.pythonhosted.org/packages/55/72/d79812aa210d411f7659fde4bbb1d5ef0e80950ff70f98bfdc57e12787dc/asciinema-2.4.0-py3-none-any.whl"
+    },
+    "libevent-core-2.1-7_2.1.12-stable-8+deb12u1_amd64.deb": {
+      "bytes": 131276,
+      "sha256": "464ace3714faa77e3a6e2beada29481a0e28a48f9db032d6fc8b6f7b6073bb01",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/libe/libevent/libevent-core-2.1-7_2.1.12-stable-8+deb12u1_amd64.deb"
+    },
+    "libutempter0_1.2.1-3_amd64.deb": {
+      "bytes": 8960,
+      "sha256": "e2bf3c7fb0ebd7d7966166d98320767adcd35a6d1eabc32220d8219c9efb1c0f",
+      "url": "https://deb.debian.org/debian/pool/main/libu/libutempter/libutempter0_1.2.1-3_amd64.deb"
+    },
+    "tmux_3.3a-3_amd64.deb": {
+      "bytes": 454536,
+      "sha256": "6bd1558face5e145d66d72c9557cbc7ff5ad66701e94dcd568e6daf081269018",
+      "url": "https://deb.debian.org/debian/pool/main/t/tmux/tmux_3.3a-3_amd64.deb"
+    }
+  },
+  "purpose": "Offline public runtime dependencies for Terminus-2; no task solutions or benchmark data are sourced externally.",
+  "verification": {
+    "asciinema": "SHA256 and size matched PyPI version2.4.0 JSON metadata.",
+    "debian_release": "Main and security InRelease OpenPGP signatures verified in public Python base. Full main Packages.xz transfer was incomplete; no full main binary index signature-chain claim is made.",
+    "downloads": "Official HTTPS origins with certificate verification enabled.",
+    "installation": "sha256sum -c SHA256SUMS, dpkg -i and pip --no-index --no-deps succeed with Docker build network disabled.",
+    "libevent": "SHA256 and size matched bookworm-security Packages.xz; Packages.xz SHA256 matched signed InRelease; InRelease verified with public base Debian archive keyring.",
+    "tmux_and_libutempter": "SHA256 and byte length matched official packages.debian.org/bookworm/amd64/<package>/download pages."
+  }
+}

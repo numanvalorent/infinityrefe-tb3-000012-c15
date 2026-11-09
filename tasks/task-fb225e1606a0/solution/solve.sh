@@ -1,3 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
-python3 /solution/solve.py
+cp /solution/propagate.py /app/propagate.py
+python3 -I /app/propagate.py /app/data/input.json /app/output.json

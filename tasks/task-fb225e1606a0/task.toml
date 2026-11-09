@@ -1,29 +1,46 @@
-artifacts = ["/app/output.json"]
-schema_version = "2.0"
+schema_version = "1.3"
+artifacts = ["/app/output.json", "/app/run.sh", "/app/propagate.py"]
 
 [task]
-name = "tbench/task-fb225e1606a0"
-description = "Original first-party Science/Physics reference-witness QA [project5-reference-ordinary-intake-20261108-01]. Use a fresh task and repository. Preserve all previous physics evaluations and budgets. This is prospective product qualification, not canonical certification."
+name = "tbench/damped-oscillator"
+description = "Build a stable propagator for free, critically damped and stiff damped mechanical oscillators."
 
 [metadata]
 category = "Science"
 subcategory = "Physics"
-tags = []
-expert_time_estimate_hours = 0
-difficulty_explanation = ""
-solution_explanation = ""
-verification_explanation = ""
+tags = ["numerical-analysis", "ordinary-differential-equations", "stability"]
+task_objective = ["implement", "validate"]
+artifact_type = ["single_script_or_program", "dataset_or_tabular_file"]
+model_tested = "GPT-5.4"
+agent_tested = "Terminus-2"
+expert_time_estimate_hours = 1
+difficulty_explanation = "Near-critical damping, zero damping, tiny timesteps and stiff overdamping require stable formulas rather than a single naive exponential or Euler update. Model difficulty is unmeasured."
+solution_explanation = "The Oracle uses the exact real-valued damped-oscillator transition with a cancellation-safe overdamped branch and a continuous critical-damping limit."
+verification_explanation = "An independent 100-digit Decimal matrix exponential computes expectations; the deliverable is replayed on fresh seeded mechanical systems with the same documented domain and tolerances."
 
 [verifier]
-timeout_sec = 1200.0
+timeout_sec = 180.0
 environment_mode = "separate"
+network_mode = "no-network"
 
 [agent]
-timeout_sec = 2400.0
+timeout_sec = 900.0
 
 [environment]
-build_timeout_sec = 900.0
-cpus = 2
-memory_mb = 4096
-storage_mb = 10240
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 1024
 gpus = 0
+network_mode = "no-network"
+
+[infinity]
+profile = "tb3"
+
+[infinity.witness]
+program = ["/bin/bash", "/app/run.sh"]
+inputs = ["/app/data/input.json"]
+outputs = ["/app/output.json"]
+witnesses = 3
+program_timeout_sec = 20
+pytest = ["/tests/test_outputs.py"]
