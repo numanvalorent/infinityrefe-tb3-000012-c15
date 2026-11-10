@@ -19,7 +19,48 @@
   "runtime_sha256": "ff00fff70eaa2476d2e84ff8288d03cfc9004796e6f59d11fc4a3f65f9b12bf7",
   "schema_version": 1,
   "task": "tbench/damped-oscillator",
-  "tolerance_provenance": {},
+  "tolerance_provenance": {
+    "candidate_reference": "solution/propagate.py",
+    "candidate_reference_sha256": "4f6db13e70344549d5ff67ae8fed6185eb1fc3647e47b3cadd46fdaae3f99ae6",
+    "measurements": [
+      {
+        "boundary_controls_rejected": 288,
+        "max_error_ratio": 5.551115123125783e-08,
+        "numeric_leaves": 288,
+        "seed": 134024349211455939
+      },
+      {
+        "boundary_controls_rejected": 288,
+        "max_error_ratio": 1.1835919898260134e-06,
+        "numeric_leaves": 288,
+        "seed": 13597883922744983946
+      },
+      {
+        "boundary_controls_rejected": 288,
+        "max_error_ratio": 8.493206138382448e-07,
+        "numeric_leaves": 288,
+        "seed": 1438615699006837604
+      },
+      {
+        "boundary_controls_rejected": 288,
+        "max_error_ratio": 1.6653345369377348e-07,
+        "numeric_leaves": 288,
+        "seed": 15202054809553646392
+      },
+      {
+        "boundary_controls_rejected": 288,
+        "max_error_ratio": 1.27675647831893e-07,
+        "numeric_leaves": 288,
+        "seed": 1264233293284217253
+      }
+    ],
+    "method": "infinity-witness-contract-measurement/1",
+    "reference_sha256": "e61f607409d119242766682f39e1bdcd4eb326b3dd18a18ca269ce60a35ebd7e",
+    "safety_divisor": 4.0,
+    "scope": "sampled_numerical_error_and_comparator_boundaries",
+    "seeds": 5,
+    "tolerances_sha256": "1fe132232814f481f2e57e7321f243f995d8ba158fb0e15cfef92013f794add7"
+  },
   "tolerances": {
     "/app/output.json": {
       "results[0].states[0].energy": {

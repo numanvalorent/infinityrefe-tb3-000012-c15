@@ -18,9 +18,13 @@ def generate(seed: int, app_root: Path) -> None:
         if ratio == 1:
             mass = 1.0
         damping = min(999.0, omega * ratio)
+        position, velocity = rng.uniform(-2.5, 2.5), rng.uniform(-2.5, 2.5)
+        # The documented domain includes the zero-energy equilibrium.
+        if index == 15:
+            position = velocity = 0.0
         cases.append({"id": f"case-{index:02d}", "m": mass, "k": mass * omega**2,
-                      "c": 2 * mass * damping, "x0": rng.uniform(-2.5, 2.5),
-                      "v0": rng.uniform(-2.5, 2.5), "times": [0, 1e-7, .03, .8, 5, 50]})
+                      "c": 2 * mass * damping, "x0": position,
+                      "v0": velocity, "times": [0, 1e-7, .03, .8, 5, 50]})
     path = app_root / "data" / "input.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes((json.dumps({"cases": cases}, sort_keys=True, separators=(",", ":")) + "\n").encode())
